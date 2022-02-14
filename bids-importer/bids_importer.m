@@ -33,6 +33,11 @@ for i = 1 : length (dcm)
     modality  = dcm{i}.modality;
     experrun  = dcm{i}.run;
     
+    % - Match folder:
+    
+    dcmFolder = dir(dcmFolder);
+    dcmFolder = [dcmFolder.folder filesep dcmFolder.name];
+    
     % - Generate the output folder and filename:
     
     if strcmp(dataType,'func') && ischar(experrun)
