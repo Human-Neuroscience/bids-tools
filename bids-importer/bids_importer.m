@@ -9,7 +9,10 @@
 %
 % - https://github.com/xiangruili/dicm2nii (REQUIRED)
 %
-% Please download and add the downloaded folder to your MATLAB path.
+% Please download & add the downloaded folder to your MATLAB path. Note
+% that "Save json file" checkbox must be manually enabled using the GUI
+% the first time you run this script. The preference change stays in effect
+% until it is changed next time.
 
 clc
 clear all
