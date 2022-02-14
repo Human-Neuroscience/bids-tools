@@ -7,7 +7,7 @@
 %% OUTPUT directory:
 % Description: Main directory of your BIDS compatible project.
 
-cfg.outputDirectory = '/Users/David/Desktop/pruebabids/demo_dataset_fmri';
+cfg.outputDirectory = '/Users/David/Desktop/fmri_bids';
 
 %% Task name:
 % Description: Task name. According to BIDS specification this identifier 

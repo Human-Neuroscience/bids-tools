@@ -13,7 +13,7 @@
 %% Name (REQUIRED) [type: string]
 % Description: Name of the dataset.
 
-datasetDescription.Name = 'demo_dataset_fmri';
+datasetDescription.Name = 'fmri_bids';
 
 %% BIDSVersion (REQUIRED) [type: string]
 % Description: The version of the BIDS standard that was used.

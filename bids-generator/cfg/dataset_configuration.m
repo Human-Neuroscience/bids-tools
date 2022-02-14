@@ -8,13 +8,13 @@
 % Description: The output directory where the project folder structure will
 % be created.
 
-cfg.outputDirectory = '/Users/David/Desktop/pruebabids';
+cfg.outputDirectory = '/Users/David/Desktop';
 
 %% Subjects (REQUIRED):
 % Description: Specify the number of subject's folders that will be
 % created.
 
-cfg.numberSubjects = 48;
+cfg.numberSubjects = 32;
 
 %% Sessions (REQUIRED):
 % Description: Specify the number of recording sessions per subject. If
