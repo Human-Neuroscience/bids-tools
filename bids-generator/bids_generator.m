@@ -31,14 +31,14 @@ end
 %% Generate and save the dataset description in a JSON file:
 
 if verLessThan('matlab','9.10')
-    data = jsonencode(data);
+    data = jsonencode(datasetDescription);
 else
-    data = jsonencode(data,'PrettyPrint',true);
+    data = jsonencode(datasetDescription,'PrettyPrint',true);
 end
         
 fid = fopen([mainFolder filesep 'dataset_description.json'], 'w');
 if fid == -1, error('Cannot create JSON file'); end
-fwrite(fid, jsonStr, 'char');
+fwrite(fid, data, 'char');
 fclose(fid);
 
 %% Import LICENSE file:
