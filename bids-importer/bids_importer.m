@@ -70,7 +70,12 @@ for i = 1 : length (dcm)
         % Update side-car JSON file:
         
         data.TaskName = cfg.taskName;
-        data = jsonencode(data,'PrettyPrint',true);
+        
+        if verLessThan('matlab','9.10')
+            data = jsonencode(data);
+        else
+            data = jsonencode(data,'PrettyPrint',true);
+        end
     
         % Save side-car JSON file:
         
