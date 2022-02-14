@@ -53,7 +53,7 @@ for i = 1 : length (dcm)
     fname  = [outFolder filesep fn{1}];
     fname_ = [outFolder filesep fileName];
     
-    movefile([fname '.nii'], [fname_ '.nii']);
+    movefile([fname cfg.dataFormat], [fname_ cfg.dataFormat]);
     movefile([fname '.json'], [fname_ '.json']);
 
     delete([outFolder '/dcmHeaders.mat']); 

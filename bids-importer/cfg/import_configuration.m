@@ -95,4 +95,4 @@ dcm{7}.run = 'run-5';
 % - 1 or '.nii.gz'  for single nii compressed.
 % - etc ...
 
-cfg.dataFormat = '.nii';
+cfg.dataFormat = '.nii.gz';
