@@ -10,6 +10,7 @@
 
 cfg.subjectId = 'sub-001';
 cfg.dcmSubID  = 'S01';
+cfg.tsvSubID  = 'S01';
 
 %% Task name:
 % Description: Task name. According to BIDS specification this identifier 
@@ -22,10 +23,11 @@ cfg.taskName = 'task-attexp';
 
 cfg.outputDirectory = '/Users/David/Desktop/att-exp-bids';
 
-%% DICOM raw directory:
-% Description: Folder containing 
+%% DICOM and TSV raw directory:
+% Description: Folder containing RAW data:
 
-rawDICOM = ['/Users/David/Desktop/' cfg.dcmSubID '/Mruz_Chema/'];
+rawDICOM = ['/Users/David/Desktop/raw/dcm/' cfg.dcmSubID '/Mruz_Chema/'];
+rawTSV   = ['/Users/David/Desktop/raw/beh/' cfg.tsvSubID ];
 
 %% DICOM folder list:
 % Description: Cell array of folders containing the dcm files to convert.
@@ -100,3 +102,10 @@ dcm{8}.run = 0;
 % - etc ...
 
 cfg.dataFormat = '.nii.gz';
+
+%% Extract TSV file:
+% Description: This function extracts the .tsv file from the psychtoolbox
+% output data file. Be aware! This function is only valid for the specific
+% data structure of our experiment.
+
+cfg.extractTSV = true;
