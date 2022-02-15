@@ -33,36 +33,64 @@ for i = 1 : length (dcm)
     modality  = dcm{i}.modality;
     experrun  = dcm{i}.run;
     
-    % - Match folder:
-    
-    dcmFolder = dir(dcmFolder);
-    dcmFolder = [dcmFolder.folder filesep dcmFolder.name];
-    
     % - Generate the output folder and filename:
     
     if strcmp(dataType,'func') && ischar(experrun)
+        
         fileName = [cfg.subjectId '_' cfg.taskName '_' experrun '_' modality];
+        
+    elseif strcmp(dataType,'fmap')
+        
+        fileName = cfg.subjectId;
+        
     else
+        
         fileName = [cfg.subjectId '_' modality];
+        
     end
     
     outFolder = [cfg.outputDirectory filesep cfg.subjectId filesep dataType];
     
-    % - DICOM to NIFTI conversion:
+    % - Match DICOM folder:
     
-    dicm2nii(dcmFolder, outFolder, cfg.dataFormat);
+    dcmFolder = dir(dcmFolder);
     
-    % - Rename converted files for BIDS compatibility:
+    for f = 1 : length(dcmFolder)
+        
+        inFolder = [dcmFolder(f).folder filesep dcmFolder(f).name];
+    
+        % - DICOM to NIFTI conversion:
+    
+        dicm2nii(inFolder, outFolder, cfg.dataFormat);
+        
+    end
+    
+    % - Rename converted files for BIDS compatibility. For field maps more
+    %   than one files must be renamed.
     
     headerFile = [outFolder '/dcmHeaders.mat'];
     load(headerFile);
     fn = fieldnames(h);
     
-    fname  = [outFolder filesep fn{1}];
-    fname_ = [outFolder filesep fileName];
-    
-    movefile([fname cfg.dataFormat], [fname_ cfg.dataFormat]);
-    movefile([fname '.json'], [fname_ '.json']);
+    for f = 1 : length(fn)
+        
+        if endsWith(fn{f},'_e1')
+            fn_ = [fileName '_magnitude1'];
+        elseif endsWith(fn{f},'_e2')
+            fn_ = [fileName '_magnitude2'];
+        elseif endsWith(fn{f},'_phase')
+            fn_ = [fileName '_phasediff'];
+        else
+            fn_ = fileName;
+        end
+        
+        fname  = [outFolder filesep fn{f}];
+        fname_ = [outFolder filesep fn_];
+
+        movefile([fname cfg.dataFormat], [fname_ cfg.dataFormat]);
+        movefile([fname '.json'], [fname_ '.json']);
+        
+    end
 
     delete([outFolder '/dcmHeaders.mat']); 
     

@@ -85,11 +85,10 @@ dcm{7}.dataType = 'func';
 dcm{7}.modality = 'bold'; 
 dcm{7}.run = 'run-5';
 
-% Special cases for field mapping not yet implemented.
-% dcm{8}.folder = '/Users/David/Desktop/S01/Mruz_Chema/gre_field_mapping_2.5mm_10';
-% dcm{8}.dataType = 'fmap';   
-% dcm{8}.modality = 'fieldmap';
-% dcm{8}.run = 0; 
+dcm{8}.folder = [rawDICOM 'gre_field_mapping_2.5mm*'];
+dcm{8}.dataType = 'fmap';   
+dcm{8}.modality = 'fieldmap';
+dcm{8}.run = 0; 
 
 
 %% Data format:
