@@ -8,9 +8,9 @@
 % Description: Subject identifier. According to BIDS specification this
 % identifier must include the prefix 'sub-' followed by a number.
 
-cfg.subjectId = 'sub-001';
-cfg.dcmSubID  = 'S01';
-cfg.tsvSubID  = 'S01';
+cfg.subjectId = 'sub-019';
+cfg.dcmSubID  = 'ATTEXP_019';
+cfg.tsvSubID  = 'Data_S019';
 
 %% Task name:
 % Description: Task name. According to BIDS specification this identifier 
@@ -21,13 +21,13 @@ cfg.taskName = 'task-attexp';
 %% OUTPUT directory:
 % Description: Main directory of your BIDS compatible project.
 
-cfg.outputDirectory = '/Users/David/Desktop/att-exp-bids';
+cfg.outputDirectory = '/Users/David/Desktop/att-exp-fmri/bids';
 
 %% DICOM and TSV raw directory:
 % Description: Folder containing RAW data:
 
-rawDICOM = ['/Users/David/Desktop/raw/dcm/' cfg.dcmSubID '/Mruz_Chema/'];
-rawTSV   = ['/Users/David/Desktop/raw/beh/' cfg.tsvSubID ];
+rawDICOM = ['/Users/David/Desktop/att-exp-fmri/dcm/' cfg.dcmSubID '/Mruz_Chema/'];
+rawTSV   = ['/Users/David/Desktop/att-exp-fmri/dcm/' cfg.dcmSubID filesep cfg.tsvSubID];
 
 %% DICOM folder list:
 % Description: Cell array of folders containing the dcm files to convert.
@@ -52,45 +52,55 @@ rawTSV   = ['/Users/David/Desktop/raw/beh/' cfg.tsvSubID ];
 %
 %  (*) When applicable, the modality is indicated in the suffix
 
-dcm{1}.folder = [rawDICOM 'GIfMI_T1_MPRAGE*'];
-dcm{1}.dataType = 'anat';   
-dcm{1}.modality = 'T1w';
-dcm{1}.run = 0; 
+dcm{1}.folder = [rawDICOM 'ep2d_bold_RUN_1*'];
+dcm{1}.dataType = 'func';   
+dcm{1}.modality = 'bold'; 
+dcm{1}.run = 'run-1'; 
 
-dcm{2}.folder = [rawDICOM 't2_tse_tra_448_p2_3mm_medico*']; 
-dcm{2}.dataType = 'anat';   
-dcm{2}.modality = 'T2w';
-dcm{2}.run = 0; 
+dcm{2}.folder = [rawDICOM 'ep2d_bold_RUN_2*'];
+dcm{2}.dataType = 'func';   
+dcm{2}.modality = 'bold'; 
+dcm{2}.run = 'run-2'; 
 
-dcm{3}.folder = [rawDICOM 'ep2d_bold_RUN_1*'];
+dcm{3}.folder = [rawDICOM 'ep2d_bold_RUN_3*'];
 dcm{3}.dataType = 'func';   
 dcm{3}.modality = 'bold'; 
-dcm{3}.run = 'run-1'; 
+dcm{3}.run = 'run-3';
 
-dcm{4}.folder = [rawDICOM 'ep2d_bold_RUN_2*'];
+dcm{4}.folder = [rawDICOM 'ep2d_bold_RUN_4*'];
 dcm{4}.dataType = 'func';   
 dcm{4}.modality = 'bold'; 
-dcm{4}.run = 'run-2'; 
+dcm{4}.run = 'run-4';
 
-dcm{5}.folder = [rawDICOM 'ep2d_bold_RUN_3*'];
+dcm{5}.folder = [rawDICOM 'ep2d_bold_RUN_5*'];
 dcm{5}.dataType = 'func';   
 dcm{5}.modality = 'bold'; 
-dcm{5}.run = 'run-3';
+dcm{5}.run = 'run-5';
 
-dcm{6}.folder = [rawDICOM 'ep2d_bold_RUN_4*'];
+dcm{6}.folder = [rawDICOM 'ep2d_bold_RUN_6*'];
 dcm{6}.dataType = 'func';   
 dcm{6}.modality = 'bold'; 
-dcm{6}.run = 'run-4';
+dcm{6}.run = 'run-6';
 
-dcm{7}.folder = [rawDICOM 'ep2d_bold_RUN_5*'];
+dcm{7}.folder = [rawDICOM 'ep2d_bold_RUN_7*'];
 dcm{7}.dataType = 'func';   
 dcm{7}.modality = 'bold'; 
-dcm{7}.run = 'run-5';
+dcm{7}.run = 'run-7';
 
-dcm{8}.folder = [rawDICOM 'gre_field_mapping_2.5mm*'];
-dcm{8}.dataType = 'fmap';   
-dcm{8}.modality = 'fieldmap';
-dcm{8}.run = 0; 
+dcm{8}.folder = [rawDICOM 'ep2d_bold_RUN_8*'];
+dcm{8}.dataType = 'func';   
+dcm{8}.modality = 'bold'; 
+dcm{8}.run = 'run-8';
+
+dcm{9}.folder = [rawDICOM 'GIfMI_T1_MPRAGE*']; 
+dcm{9}.dataType = 'anat';   
+dcm{9}.modality = 'T1w';
+dcm{9}.run = 0; 
+
+dcm{10}.folder = [rawDICOM 'gre_field_mapping_2.5mm*'];
+dcm{10}.dataType = 'fmap';   
+dcm{10}.modality = 'fieldmap';
+dcm{10}.run = 0; 
 
 
 %% Data format:
@@ -101,11 +111,9 @@ dcm{8}.run = 0;
 % - 1 or '.nii.gz'  for single nii compressed.
 % - etc ...
 
-cfg.dataFormat = '.nii.gz';
+cfg.dataFormat = '.nii';
 
 %% Extract TSV file:
-% Description: This function extracts the .tsv file from the psychtoolbox
-% output data file. Be aware! This function is only valid for the specific
-% data structure of our experiment.
+% Description: Import TSV files for the specified folder.
 
-cfg.extractTSV = true;
+cfg.importTSV = true;
