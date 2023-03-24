@@ -28,8 +28,8 @@ cfg.ignoreSingleSession = true;
 % created per session. Note that each column corresponds to an individual
 % session.
 
-cfg.anatomical = [1 0];
-cfg.functional = [1 0];
+cfg.anatomical = [0 0];
+cfg.functional = [0 0];
 cfg.fieldmaps  = [0 0];
 cfg.diffusion  = [0 0];
 

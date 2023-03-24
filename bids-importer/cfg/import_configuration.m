@@ -53,23 +53,23 @@ rawTSV   = ['/Users/David/Desktop/att-exp-fmri/dcm/' cfg.dcmSubID filesep cfg.ts
 %  (*) When applicable, the modality is indicated in the suffix
 
 dcm{1}.folder = [rawDICOM 'ep2d_bold_RUN_1*'];
-dcm{1}.dataType = 'func';   
-dcm{1}.modality = 'bold'; 
-dcm{1}.run = 'run-1'; 
+dcm{1}.dataType = 'func';
+dcm{1}.modality = 'bold';
+dcm{1}.run = 'run-1';
 
 dcm{2}.folder = [rawDICOM 'ep2d_bold_RUN_2*'];
-dcm{2}.dataType = 'func';   
-dcm{2}.modality = 'bold'; 
-dcm{2}.run = 'run-2'; 
+dcm{2}.dataType = 'func';
+dcm{2}.modality = 'bold';
+dcm{2}.run = 'run-2';
 
 dcm{3}.folder = [rawDICOM 'ep2d_bold_RUN_3*'];
-dcm{3}.dataType = 'func';   
-dcm{3}.modality = 'bold'; 
+dcm{3}.dataType = 'func';
+dcm{3}.modality = 'bold';
 dcm{3}.run = 'run-3';
 
 dcm{4}.folder = [rawDICOM 'ep2d_bold_RUN_4*'];
-dcm{4}.dataType = 'func';   
-dcm{4}.modality = 'bold'; 
+dcm{4}.dataType = 'func';
+dcm{4}.modality = 'bold';
 dcm{4}.run = 'run-4';
 
 dcm{5}.folder = [rawDICOM 'ep2d_bold_RUN_5*'];
@@ -83,24 +83,24 @@ dcm{6}.modality = 'bold';
 dcm{6}.run = 'run-6';
 
 dcm{7}.folder = [rawDICOM 'ep2d_bold_RUN_7*'];
-dcm{7}.dataType = 'func';   
-dcm{7}.modality = 'bold'; 
+dcm{7}.dataType = 'func';
+dcm{7}.modality = 'bold';
 dcm{7}.run = 'run-7';
 
 dcm{8}.folder = [rawDICOM 'ep2d_bold_RUN_8*'];
-dcm{8}.dataType = 'func';   
-dcm{8}.modality = 'bold'; 
+dcm{8}.dataType = 'func';
+dcm{8}.modality = 'bold';
 dcm{8}.run = 'run-8';
 
 dcm{9}.folder = [rawDICOM 'GIfMI_T1_MPRAGE*']; 
-dcm{9}.dataType = 'anat';   
+dcm{9}.dataType = 'anat';
 dcm{9}.modality = 'T1w';
-dcm{9}.run = 0; 
+dcm{9}.run = 0;
 
 dcm{10}.folder = [rawDICOM 'gre_field_mapping_2.5mm*'];
-dcm{10}.dataType = 'fmap';   
+dcm{10}.dataType = 'fmap';
 dcm{10}.modality = 'fieldmap';
-dcm{10}.run = 0; 
+dcm{10}.run = 0;
 
 
 %% Data format:
